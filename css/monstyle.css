@@ -1,0 +1,19 @@
+@charset "UTF-8";
+/**
+ * Fichier CSS
+ * Fichier maître pour assembler tous les fichiers css
+ * @author Michael Larboni
+ * @version 1.0
+ * @package Json
+ */
+
+
+@import "../css/contact.css" screen;
+
+@import "../css/content.css" screen;
+
+@import "../css/header.css" screen;
+
+@import "../css/layout.css" screen;
+
+@import "../css/normalisation.css" screen;
