@@ -9,6 +9,7 @@ class VHeader
         global $li;
         global $nouveau;
         global $deconnexion;
+        global $admin;
 
         // Récupération des données des items
         $mitems = new MItems();
@@ -19,6 +20,7 @@ class VHeader
         $li = '';
         $nouveau = '' ;
         $deconnexion = '' ;
+        $admin =  '';
 
         foreach ($data as $val)
         {
@@ -28,6 +30,7 @@ class VHeader
                 $li .= '<li><a href="../Php/index.php?EX=form_item&amp;ID_ITEM='.$val['ID_ITEM'].'&amp;ITEM='.$val['ITEM'].'">'.$val['ITEM'].'</a></li>';
                 $nouveau 	 = '<li><a href="../Php/index.php?EX=form_item">Nouveau</a></li>';
                 $deconnexion = '<li><a href="../Php/index.php?EX=deconnect">Déconnexion</a></li>';
+                $admin =  '';
             }
             else
             {
@@ -35,9 +38,10 @@ class VHeader
                 $li .= '<li><a href="../Php/index.php?EX=page&amp;ITEM='.$val['ITEM'].'">'.$val['ITEM'].'</a></li>';
                 $nouveau .= '' ;
                 $deconnexion .= '' ;
+                $admin =  '<div id="admin"><a href="../Php/index.php?EX=admin">privé</a></div>';
+
             }
         }
-
 
         include ('../Html/header.html.php');
 

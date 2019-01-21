@@ -45,7 +45,7 @@ function home()
 
     global $content;
 
-    $content['title']  = 'Cat Clinique';
+    $content['title']  = 'Cat Clinic';
     $content['class']  = 'VHtml';
     $content['method'] = 'showHtml';
     $content['arg']    = '../Html/home.html';
@@ -176,7 +176,7 @@ function page()
 
     global $content;
 
-    $content['title']  = 'Cat Clinique';
+    $content['title']  = 'Cat Clinic';
     $content['class']  = 'VHtml';
     $content['method'] = 'showHtml';
     $content['arg']    = '../Html/'.$data.'.html';
