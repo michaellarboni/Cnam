@@ -6,8 +6,6 @@ dist
 *.swp
 .cache
 .idea
-Inc/
-require.inc.php
 Sql/
 .sass-cache/
 *.map
