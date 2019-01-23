@@ -64,7 +64,7 @@
 
 // 1. Global
 // ---------
-
+$catColor : #0787ce ;
 $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
@@ -168,8 +168,8 @@ $code-font-weight: $global-weight-normal;
 $code-background: $light-gray;
 $code-border: 1px solid $medium-gray;
 $code-padding: rem-calc(2 5 1);
-$anchor-color: $primary-color;
-$anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
+$anchor-color: #c3c3c3;
+$anchor-color-hover: scale-color($anchor-color, $lightness: 14%);
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 $hr-width: $global-width;
@@ -819,7 +819,7 @@ $thumbnail-radius: $global-radius;
 // 53. Title Bar
 // -------------
 
-$titlebar-background: $black;
+$titlebar-background: $catColor;
 $titlebar-color: $white;
 $titlebar-padding: 0.5rem;
 $titlebar-text-font-weight: bold;
@@ -845,6 +845,7 @@ $tooltip-radius: $global-radius;
 // 55. Top Bar
 // -----------
 
+$top-bar-center: center;
 $topbar-padding: 0.5rem;
 $topbar-background: $light-gray;
 $topbar-submenu-background: $topbar-background;

@@ -11,7 +11,7 @@
         <div class="cell medium-9">
             <div class="tabs-content" data-tabs-content="example-tabs">
                 <div class="tabs-panel is-active" id="pane1">
-                    <h3>Maladies et vaccination</h3>
+                    <h2>Maladies et vaccination</h2>
                         <h3>Votre chat compte sur vous pour être protégé</h3>
                         <p>L'un des meilleurs moyens de permettre à votre chat de vivre en bonne santé pendant de nombreuses années est de le faire vacciner contre les maladies félines les plus répandues. Au cours des premières semaines de son existence votre chat a reçu, par le lait de sa mère, des anticorps qui l'ont immunisé contre certaines maladies. Après cette période, c'est à vous qu'il revient de protéger votre compagnon, avec l'aide et les conseils de votre vétérinaire.</p>
                         <h3>Comment un vaccin fonctionne-t-il ? </h3>
@@ -20,7 +20,7 @@
                         <p>En général, l'immunité que reçoit un chaton à sa naissance commence à s'estomper après neuf semaines. C'est alors le moment, habituellement, de lui administrer ses premiers vaccins. Il doit recevoir un rappel de 3 à 4 semaines plus tard. Par la suite, votre chat devra se faire vacciner régulièrement toute sa vie. Bien sûr, ce ne sont que des lignes directrices. Votre vétérinaire sera en mesure de déterminer le programme de vaccination qui répondra parfaitement aux besoins de votre compagnon félin.</p>
                 </div>
                 <div class="tabs-panel" id="pane2">
-                    <h3>Les dangers domestiques</h3>
+                    <h2>Les dangers domestiques</h2>
                     <p>Comment faire de votre maison un endroit sûr pour vos animaux domestiques</p>
                     <p>Tout comme les parents rendent leur maison à l’épreuve de leurs enfants, les propriétaires d’animaux domestiques devraient faire de même pour leur animal domestique. Nos compagnons à quatre pattes sont comme les bébés et les bambins : curieux de nature, ils sont portés à explorer leur environnement avec leurs pattes et leurs griffes et à goûter à tout.</p>
                     <h3>Dans la maison</h3>

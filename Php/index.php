@@ -179,7 +179,7 @@ function page()
     $content['title']  = 'Cat Clinic';
     $content['class']  = 'VHtml';
     $content['method'] = 'showHtml';
-    $content['arg']    = '../Html/'.$data.'.html';
+    $content['arg']    = '../Html/'.$data.'.html.php';
 
     return;
 }

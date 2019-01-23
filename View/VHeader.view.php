@@ -10,36 +10,48 @@ class VHeader
         global $nouveau;
         global $deconnexion;
         global $admin;
+        global $active;
+        global $id;
 
         // Récupération des données des items
         $mitems = new MItems();
         $data = $mitems->SelectAll();
         //strip_xss($data);
 
-        // Boucle sur les tuples de la table ITEMS
-        $li = '';
-        $nouveau = '' ;
+        $li          = '' ;
+        $nouveau     = '' ;
         $deconnexion = '' ;
-        $admin =  '';
+        $admin       = '' ;
+        $active      = '' ;
+        $id          = '' ;
 
+        // Boucle sur les tuples de la table ITEMS
         foreach ($data as $val)
         {
+            if (isset($_REQUEST['ITEM']) and $_REQUEST['ITEM'] == $val['ITEM'])
+            {
+                $id = 'active' ;
+            }
+                else
+            {
+                $id = '' ;
+            }
+
             // Vérifie si l'on est en mode administration
             if (isset($_SESSION['ADMIN']))
             {
-                $li .= '<li><a href="../Php/index.php?EX=form_item&amp;ID_ITEM='.$val['ID_ITEM'].'&amp;ITEM='.$val['ITEM'].'">'.$val['ITEM'].'</a></li>';
-                $nouveau 	 = '<li><a href="../Php/index.php?EX=form_item">Nouveau</a></li>';
-                $deconnexion = '<li><a href="../Php/index.php?EX=deconnect">Déconnexion</a></li>';
-                $admin =  '';
+                $li         .= '<li class="item" id="'.$id.'"><a href="../Php/index.php?EX=form_item&amp;ID_ITEM='.$val['ID_ITEM'].'&amp;ITEM='.$val['ITEM'].'">'.$val['ITEM'].'</a></li>';
+                $nouveau 	 = '<li class="is-active"><a href="../Php/index.php?EX=form_item">Nouveau</a></li>';
+                $deconnexion = '<li class="is-active"><a href="../Php/index.php?EX=deconnect">Déconnexion</a></li>';
+                $admin       = '';
             }
             else
             {
                 //$li .= '<li><a href="../Php/index.php?EX=page&amp;ITEM='.$val['ITEM'].'">'.$val['ITEM'].'</a></li>';
-                $li .= '<li><a href="../Php/index.php?EX=page&amp;ITEM='.$val['ITEM'].'">'.$val['ITEM'].'</a></li>';
-                $nouveau .= '' ;
+                $li          .= '<li class="'.$val['ITEM'].'" id="'.$id.'"><a href="../Php/index.php?EX=page&amp;ITEM='.$val['ITEM'].'">'.$val['ITEM'].'</a></li>';
+                $nouveau     .= '' ;
                 $deconnexion .= '' ;
-                $admin =  '<div id="admin"><a href="../Php/index.php?EX=admin">privé</a></div>';
-
+                $admin        =  '<div id="admin"><a href="../Php/index.php?EX=admin">a</a></div>';
             }
         }
 
