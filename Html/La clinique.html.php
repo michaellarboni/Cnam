@@ -11,16 +11,16 @@
         <div class="cell medium-9">
             <div class="tabs-content" data-tabs-content="example-tabs">
                 <div class="tabs-panel is-active" id="panel1">
-                    <?php include('Les spécialités de la clinique.html');?>
+                    <?php include('Les spécialités de la clinique.html.php');?>
                 </div>
                 <div class="tabs-panel" id="panel2">
-                   <?php include('L\'équipe.html');?>
+                   <?php include('L\'équipe.html.php');?>
                 </div>
                 <div class="tabs-panel" id="panel3">
-                    <?php include('adresse.html');?>
+                    <?php include('adresse.html.php');?>
                 </div>
                 <div class="tabs-panel" id="panel4">
-                    <?php include('horaires.html');?>
+                    <?php include('horaires.html.php');?>
                 </div>
             </div>
         </div>
