@@ -3,7 +3,7 @@
 
     </div>
 
-    <div class="cell auto center">
+    <div class="cell auto">
         <div class="">
             <h2>Bienvenue sur le site de Cat Clinic</h2>
             <p>Spécialisée dans l'accueil et le soin des félins (Chat, Hyenes, Tigre du Bengale etc.)</p>
