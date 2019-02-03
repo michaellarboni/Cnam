@@ -29,3 +29,5 @@
     <button type="submit" class="">Envoyer</button>
 
 </form>
+
+<script src="../js/verifContact.js"></script>
