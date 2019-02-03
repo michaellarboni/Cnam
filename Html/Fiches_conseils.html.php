@@ -1,16 +1,17 @@
 <div class="grid-container">
     <div class="grid-x grid-margin-x">
-        <div class="cell medium-3">
+        <div class="cell medium-3" aria-label="pagination">
             <ul class="vertical tabs" data-tabs id="example-tabs">
-                <li class="tabs-title is-active"><a href="#pane1" aria-selected="true">Maladies et vaccination</a></li>
-                <li class="tabs-title"><a href="#pane2">Les dangers domestiques</a></li>
-                <li class="tabs-title"><a href="#pane3">Administration des médicaments</a></li>
-                <li class="tabs-title"><a href="#pane4">Comportement de votre chat</a></li>
+                <li class="tabs-title is-active"><a href="#panel1" role="doc-backlink" aria-selected="true">Maladies et vaccination</a></li>
+                <li class="tabs-title"><a href="#panel2" aria-label="panel2">Les dangers domestiques</a></li>
+                <li class="tabs-title"><a href="#panel3" aria-label="panel3">Administration des médicaments</a></li>
+                <li class="tabs-title"><a href="#panel4" aria-label="panel4">Comportement de votre chat</a></li>
+                <li class="tabs-title"><a href="#panel5" aria-label="panel5">Ajouter votre fiche conseil</a></li>
             </ul>
         </div>
         <div class="cell medium-9">
             <div class="tabs-content" data-tabs-content="example-tabs">
-                <div class="tabs-panel is-active" id="pane1">
+                <div class="tabs-panel is-active" id="panel1">
                     <h2>Maladies et vaccination</h2>
                         <h3>Votre chat compte sur vous pour être protégé</h3>
                         <p>L'un des meilleurs moyens de permettre à votre chat de vivre en bonne santé pendant de nombreuses années est de le faire vacciner contre les maladies félines les plus répandues. Au cours des premières semaines de son existence votre chat a reçu, par le lait de sa mère, des anticorps qui l'ont immunisé contre certaines maladies. Après cette période, c'est à vous qu'il revient de protéger votre compagnon, avec l'aide et les conseils de votre vétérinaire.</p>
@@ -19,7 +20,7 @@
                         <h3>Quand dois-je faire vacciner mon chat ?</h3>
                         <p>En général, l'immunité que reçoit un chaton à sa naissance commence à s'estomper après neuf semaines. C'est alors le moment, habituellement, de lui administrer ses premiers vaccins. Il doit recevoir un rappel de 3 à 4 semaines plus tard. Par la suite, votre chat devra se faire vacciner régulièrement toute sa vie. Bien sûr, ce ne sont que des lignes directrices. Votre vétérinaire sera en mesure de déterminer le programme de vaccination qui répondra parfaitement aux besoins de votre compagnon félin.</p>
                 </div>
-                <div class="tabs-panel" id="pane2">
+                <div class="tabs-panel" id="panel2">
                     <h2>Les dangers domestiques</h2>
                     <p>Comment faire de votre maison un endroit sûr pour vos animaux domestiques</p>
                     <p>Tout comme les parents rendent leur maison à l’épreuve de leurs enfants, les propriétaires d’animaux domestiques devraient faire de même pour leur animal domestique. Nos compagnons à quatre pattes sont comme les bébés et les bambins : curieux de nature, ils sont portés à explorer leur environnement avec leurs pattes et leurs griffes et à goûter à tout.</p>
@@ -28,8 +29,8 @@
                     <p>Ne laissez pas votre animal sans surveillance dans une pièce dans laquelle un feu de foyer est allumé ou une chaufferette fonctionne. Les sacs de plastique sont bien amusants, mais votre animal peut s’étouffer en jouant avec eux.</p>
                     <p>Dites-vous bien que si votre animal domestique peut se mettre quelque chose dans la gueule, il est fort probable qu’il le fera. Ne laissez donc pas traîner de petits objets pointus et faciles à avaler.</p>
                 </div>
-                <div class="tabs-panel" id="pane3">
-                    <h3>Administration des médicaments</h3>
+                <div class="tabs-panel" id="panel3">
+                    <h2>Administration des médicaments</h2>
                     <p>Tout comme vous, votre animal sera malade et il est probable que vous deviez lui administrer des médicaments prescrits par votre vétérinaire. L’emploi d’une bonne méthode facilitera la vie de tout le monde:</p>
                     <div id="solides">
                         <h3>Les comprimés ou gélules</h3>
@@ -75,8 +76,8 @@
                         <p>Pour éviter de mettre vos doigts dans la gueule de votre compagnon, vous pouvez utiliser une seringue spéciale. Il s’agit d’un tube en plastique similaire à une seringue qui permet de déposer le comprimé ou la capsule dans la gueule de l’animal.</p>
                     </div>
                 </div>
-                <div class="tabs-panel" id="pane4">
-                    <h3>Comportement de votre chat</h3>
+                <div class="tabs-panel" id="panel4">
+                    <h2>Comportement de votre chat</h2>
                     <h4>Notions de base</h4>
                     <p>Le chat est devenu l’animal de compagnie le plus populaire en Europe.</p>
                     <p>Bien qu’il soit très différent du chien, le chat est animal sociable et indépendant, demandant énormément d’affection !</p>
@@ -91,6 +92,9 @@
                     <p>Attention, les griffoirs que l’on trouve dans le commerce ne plaisent pas à tous les chats.</p>
                     <p>Idéalement, le griffoir doit être plus grand que le chat debout sur ses pattes arrière et doit être placé bien en vue dans un endroit facile d’accès.</p>
                     <p>Evitez de changer tout le temps de griffoir. En effet, plus le poteau aura été griffé et sera délabré, plus votre chat l’aimera et l’utilisera.</p>
+                </div>
+                <div class="tabs-panel" id="panel5">
+                    <h3>Ajouter ici votre fiche conseil</h3>
                 </div>
             </div>
         </div>
