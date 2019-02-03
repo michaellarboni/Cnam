@@ -1,7 +1,7 @@
 <table>
     <thead>
         <tr>
-           <th colspan="2" width="300">Horaires d'ouverture</th>
+           <th colspan="2">Horaires d'ouverture</th>
         </tr>
     </thead>
     <tbody>
