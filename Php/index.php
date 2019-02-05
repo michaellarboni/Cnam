@@ -48,7 +48,7 @@ function home()
     $content['title']  = 'Cat Clinic';
     $content['class']  = 'VHtml';
     $content['method'] = 'showHtml';
-    $content['arg']    = '../Html/home.html';
+    $content['arg']    = '../Html/home.html.php';
 
     return;
 } // home()
