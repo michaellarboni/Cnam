@@ -75,7 +75,8 @@ $foundation-palette: (
   warning: #ffae00,
   alert: #cc4b37,
 );
-$light-gray: #e6e6e6;
+$light-gray: #F9F9F9;
+$perso-white: #E8ECF1;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $black: #0a0a0a;
@@ -168,7 +169,7 @@ $code-font-weight: $global-weight-normal;
 $code-background: $light-gray;
 $code-border: 1px solid $medium-gray;
 $code-padding: rem-calc(2 5 1);
-$anchor-color: #c3c3c3;
+$anchor-color: $perso-white;
 $anchor-color-hover: scale-color($anchor-color, $lightness: 14%);
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
@@ -793,18 +794,19 @@ $table-stack-breakpoint: medium;
 // 51. Tabs
 // --------
 
-$tab-margin: 0;
+$tab-margin: 10px;
 $tab-background: $white;
 $tab-color: $primary-color;
-$tab-background-active: $light-gray;
-$tab-active-color: $primary-color;
-$tab-item-font-size: rem-calc(12);
-$tab-item-background-hover: $white;
-$tab-item-padding: 1.25rem 1.5rem;
+$tab-background-active: $catColor;
+$tab-active-color: $white;
+$tab-item-font-size: rem-calc(14);
+$tab-item-background-hover: $catColor;
+$tab-item-padding: 1.5rem 1.5rem;
 $tab-content-background: $white;
 $tab-content-border: $light-gray;
 $tab-content-color: $body-font-color;
 $tab-content-padding: 1rem;
+
 
 // 52. Thumbnail
 // -------------
@@ -824,7 +826,7 @@ $titlebar-color: $white;
 $titlebar-padding: 0.5rem;
 $titlebar-text-font-weight: bold;
 $titlebar-icon-color: $white;
-$titlebar-icon-color-hover: $medium-gray;
+$titlebar-icon-color-hover: black;
 $titlebar-icon-spacing: 0.25rem;
 
 // 54. Tooltip
