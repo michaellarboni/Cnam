@@ -1,9 +1,9 @@
 <?php
 /**
  * Contrôleur
- * @author Christian Bonhomme
+ * @author Michael Larboni
  * @version 1.0
- * @package EXAM-CNAM
+ * @package Projet Cnam NFA021
  */
 
 // Inclusion des constantes et des fonctions de l'application
