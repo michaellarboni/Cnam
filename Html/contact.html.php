@@ -1,4 +1,10 @@
-<form id="formContact" name="formulaire_envoi_message" method="POST" action="">
+<div>
+    <p>
+        <a href="../Php/index.php?EX=sendMail">TEST MAIL</a>
+    </p>
+</div>
+
+<form id="formContact" name="formulaire_envoi_message" method="POST" action="../Php/index.php?EX=sendMail">
     <h3>Contactez nous</h3>
 
     <div class="contactChamp">
