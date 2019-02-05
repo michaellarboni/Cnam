@@ -13,7 +13,7 @@ class VHtml
 
     function showHtml($_html)
     {
-        (file_exists($_html)) ? include($_html) : include('../Html/construction.html');
+        (file_exists($_html)) ? include($_html) : include('../Html/construction.html.php');
     }
 }
 
