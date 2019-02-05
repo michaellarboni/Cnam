@@ -26,16 +26,22 @@ class VHeader
         $id          = '' ;
 
         // Boucle sur les tuples de la table ITEMS
+
         foreach ($data as $val)
         {
+            // Supprime les espaces pour l'attribut 'id' conforme au w3c
+            $_id= str_replace(' ', '_', $val['ITEM']);
+
             if (isset($_REQUEST['ITEM']) and $_REQUEST['ITEM'] == $val['ITEM'])
             {
                 $id = 'active' ;
             }
-                else
-            {
-                $id = '' ;
-            }
+            else
+                {
+                    $id = $_id ;
+                }
+
+            $_val= str_replace(' ', '_', $val['ITEM']);
 
             // Vérifie si l'on est en mode administration
             if (isset($_SESSION['ADMIN']))
@@ -48,10 +54,10 @@ class VHeader
             else
             {
                 //$li .= '<li><a href="../Php/index.php?EX=page&amp;ITEM='.$val['ITEM'].'">'.$val['ITEM'].'</a></li>';
-                $li          .= '<li class="'.$val['ITEM'].'" id="'.$id.'"><a href="../Php/index.php?EX=page&amp;ITEM='.$val['ITEM'].'">'.$val['ITEM'].'</a></li>';
+                $li          .= '<li class="'.$val['ITEM'].'" id="'.$id.'"><a href="../Php/index.php?EX=page&amp;ITEM='.$_val.'">'.$val['ITEM'].'</a></li>';
                 $nouveau     .= '' ;
                 $deconnexion .= '' ;
-                $admin        =  '<div id="admin"><a href="../Php/index.php?EX=admin">a</a></div>';
+                $admin        =  '<li id="admin"><a href="../Php/index.php?EX=adminForm"></a></li>';
             }
         }
 
@@ -92,10 +98,7 @@ class VHeader
     $supprimer
 </div>
 HERE;
-
         return;
-
     }
-
 }
 
