@@ -1,51 +1,3 @@
-header {
-  border-top: 5px solid #0787ce;
-  border-bottom: 5px solid #0787ce;
-  text-align: center; }
-
-h1 {
-  #background-size: contain;
-  font-family: Comfortaa,Arial,sans-serif;
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 28px;
-  #transform: translateY(30%); }
-
-.menu {
-  font-family: Comfortaa,Arial,sans-serif;
-  #color: ghostwhite;
-  font-size: 13px;
-  justify-content: center; }
-
-.top-bar {
-  height: auto;
-  #text-transform: uppercase;
-  #color: #FFF8F8;
-  letter-spacing: 1px;
-  background: primary;
-  #border-bottom: 3px solid blue;
-  #border-top: 3px solid blue; }
-
-.top-bar ul li {
-  #width: 100px;
-  margin: 0 auto 0 auto;
-  list-style: none; }
-
-@media only screen and (min-width: 856px) {
-  .top-bar ul li {
-    width: 140px;
-    #text-transform: uppercase; } }
-.top-bar ul li a {
-  width: 120px;
-  margin: auto 4px auto 4px;
-  #border-left: 0.5px solid white; }
-
-#logo {
-  float: left;
-  background: transparent url(../Img/logo.png) no-repeat;
-  width: 122px;
-  height: 96px; }
-
 #admin a {
   position: absolute;
   top: 0;
@@ -53,5 +5,3 @@ h1 {
   display: block;
   width: 10px;
   height: 10px; }
-
-/*# sourceMappingURL=header.css.map */
