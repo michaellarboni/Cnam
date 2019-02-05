@@ -22,12 +22,15 @@ switch($EX)
 {
     case 'home'         : home();           break;
     case 'admin'        : admin();          break;
+    case 'adminForm'    : adminForm();      break;
+    case 'verifAdmin'   : verifAdmin();     break;
     case 'deconnect'    : deconnect();      break;
     case 'form_item'    : form_item();      break;
     case 'insert_item'  : insert_item();    break;
     case 'update_item'  : update_item();    break;
     case 'delete_item'  : delete_item();    break;
     case 'page'         : page();           break;
+    case 'sendMail'     : sendMail();       break;
 
     default             : home();
 }
@@ -59,6 +62,31 @@ function home()
  *
  * @return
  */
+
+function adminForm()
+{
+    global $content;
+
+    $content['title']  = 'Cat Clinic';
+    $content['class']  = 'VAdmin';
+    $content['method'] = 'adminForm';
+    $content['arg']    = '';
+
+    return;
+
+} // verifAdmin()
+
+function verifAdmin()
+{
+    global $content;
+
+    $content['title']  = 'Cat Clinic';
+    $content['class']  = 'VAdmin';
+    $content['method'] = 'verifAdmin';
+    $content['arg']    = '';
+
+    return;
+}
 function admin()
 {
     $_SESSION['ADMIN'] = true;
@@ -163,11 +191,6 @@ function delete_item()
     return;
 } // delete_item()
 
-/**
- * Affichage de la liste des messages par item
- *
- * @return
- */
 
 
 function page()
