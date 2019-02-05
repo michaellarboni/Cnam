@@ -7,28 +7,20 @@ global $admin;
 
 echo<<<NOW
 
-<!--div data-sticky-container>
-  <div class="title-bar" data-sticky data-options="marginTop:0;" style="width:100%">
-    <div class="title-bar-left"><Content</div>
-    <div class="title-bar-right">Content</div>
-  </div>
-</div-->
-
-
 <div data-sticky-container>
 
     <div class="title-bar" data-sticky data-options="marginTop:0;" style="width:100%">
 
         <div class="title-bar">
             <div id="logo">
-                <a href="../Php/index.php"><img src="../Img/logoTitre.png"></a>
+                <a href="../Php/index.php"><img src="../Img/logoTitre.png" alt="logoCatClinic"></a>
             </div>
             <div id="logoAccueil">
-                <a href="../Php/index.php"><img src="../Img/logoAccueil.png"></a>
+                <a href="../Php/index.php"><img src="../Img/logoAccueil.png" alt="logoAccueil"></a>
             </div>
          <div class="title-bar">
             <div id="logoContact">
-                <a href="../Php/index.php?EX=page&ITEM=contact"><img src="../Img/logo-contact.png"></a>
+                <a href="../Php/index.php?EX=page&ITEM=contact"><img src="../Img/logo-contact.png" alt="logoContact"></a>
             </div>
          </div>
         </div>
@@ -38,6 +30,7 @@ echo<<<NOW
                 $li
                 $nouveau
                 $deconnexion
+                $admin
             </ul>
         </div>
      </div>
