@@ -89,7 +89,7 @@ class VHeader
       <legend>Formulaire</legend>
       <p>
        <label for="item">Item</label>
-       <input id="item" name="ITEM" value="$item" size="25" maxlength="50" />
+       <input id="item" name="ITEM" value="$item" size="25" required="required" maxlength="50" />
       <p class="submit">
        <input type="submit" value="Ok" />
       </p>
