@@ -184,3 +184,14 @@ function page()
     return;
 }
 
+function sendMail()
+{
+    global $content;
+
+    $content['title']  = 'Cat Clinic';
+    $content['class']  = 'VHtml';
+    $content['method'] = 'showHtml';
+    $content['arg']    = '../Html/sendMail.html.php';
+
+    return;
+}
