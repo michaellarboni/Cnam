@@ -5,6 +5,8 @@
  * foundation.zurb.com
  * Licensed under MIT Open Source
  */
+@import url(../css/contact.css);
+@import url(../css/header.css);
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 html {
   line-height: 1.15;
@@ -347,11 +349,11 @@ h6, .h6 {
 
 a {
   line-height: inherit;
-  color: #c3c3c3;
+  color: #E8ECF1;
   text-decoration: none;
   cursor: pointer; }
   a:hover, a:focus {
-    color: #cbcbcb; }
+    color: #ebeff3; }
   a img {
     border: 0; }
 
@@ -418,7 +420,7 @@ figure {
 code {
   padding: 0.125rem 0.3125rem 0.0625rem;
   border: 1px solid #cacaca;
-  background-color: #e6e6e6;
+  background-color: #F9F9F9;
   font-family: Consolas, "Liberation Mono", Courier, monospace;
   font-weight: normal;
   color: #0a0a0a; }
@@ -426,7 +428,7 @@ code {
 kbd {
   margin: 0;
   padding: 0.125rem 0.25rem 0;
-  background-color: #e6e6e6;
+  background-color: #F9F9F9;
   font-family: Consolas, "Liberation Mono", Courier, monospace;
   color: #0a0a0a; }
 
@@ -2149,8 +2151,8 @@ table.hover:not(.unstriped) tr:nth-of-type(even):hover {
 @include foundation-tooltip;
 */
 .tabs {
-  margin: 0;
-  border: 1px solid #e6e6e6;
+  margin: 10px;
+  border: 1px solid #F9F9F9;
   background: #fefefe;
   list-style-type: none; }
   .tabs::before, .tabs::after {
@@ -2185,21 +2187,21 @@ table.hover:not(.unstriped) tr:nth-of-type(even):hover {
   float: left; }
   .tabs-title > a {
     display: block;
-    padding: 1.25rem 1.5rem;
-    font-size: 0.75rem;
+    padding: 1.5rem 1.5rem;
+    font-size: 0.875rem;
     line-height: 1;
     color: #1779ba; }
     [data-whatinput='mouse'] .tabs-title > a {
       outline: 0; }
     .tabs-title > a:hover {
-      background: #fefefe;
+      background: #0787ce;
       color: #1468a0; }
     .tabs-title > a:focus, .tabs-title > a[aria-selected='true'] {
-      background: #e6e6e6;
-      color: #1779ba; }
+      background: #0787ce;
+      color: #fefefe; }
 
 .tabs-content {
-  border: 1px solid #e6e6e6;
+  border: 1px solid #F9F9F9;
   border-top: 0;
   background: #fefefe;
   color: #0a0a0a;
@@ -2207,7 +2209,7 @@ table.hover:not(.unstriped) tr:nth-of-type(even):hover {
   transition: all 0.5s ease; }
 
 .tabs-content.vertical {
-  border: 1px solid #e6e6e6;
+  border: 1px solid #F9F9F9;
   border-left: 0; }
 
 .tabs-panel {
@@ -2450,9 +2452,9 @@ table.hover:not(.unstriped) tr:nth-of-type(even):hover {
             box-shadow: 0 7px 0 #fefefe, 0 14px 0 #fefefe;
     content: ''; }
   .menu-icon:hover::after {
-    background: #cacaca;
-    -webkit-box-shadow: 0 7px 0 #cacaca, 0 14px 0 #cacaca;
-            box-shadow: 0 7px 0 #cacaca, 0 14px 0 #cacaca; }
+    background: black;
+    -webkit-box-shadow: 0 7px 0 black, 0 14px 0 black;
+            box-shadow: 0 7px 0 black, 0 14px 0 black; }
 
 .menu-icon.dark {
   position: relative;
@@ -2827,27 +2829,27 @@ body {
 .menu li {
   font-family: Comfortaa, Arial, sans-serif;
   text-transform: lowercase;
-  color: white;
   font-size: 18px;
-  letter-spacing: 0.9px;
-  -webkit-transition-duration: 0.6s;
-          transition-duration: 0.6s; }
+  letter-spacing: 1px;
+  -webkit-transition-duration: 0s;
+          transition-duration: 0s; }
   .menu li:hover {
-    -webkit-transition-duration: 0.8s;
-            transition-duration: 0.8s;
-    background: whitesmoke;
-    color: #0787ce; }
+    -webkit-transition-duration: 0s;
+            transition-duration: 0s;
+    font-weight: bold;
+    letter-spacing: 1.5px; }
   .menu li:first-child {
     border: none; }
 
 #logo img {
-  height: 180px; }
+  height: 80px; }
 
 #logoAccueil img, #logoContact img {
   display: none; }
 
 #active a {
-  text-decoration: underline; }
+  font-weight: bold;
+  letter-spacing: 1.5px; }
 
 .tabs-content {
   min-height: 80vh; }
@@ -2860,7 +2862,7 @@ body {
   #logo img {
     display: none; }
   .menu .Contact {
-    visibility: hidden; }
+    display: none; }
   #logoAccueil img, #logoContact img {
     display: block;
     height: 20px; } }
@@ -2874,3 +2876,17 @@ body {
     height: 100px; }
   .menu li {
     font-size: 14px; } }
+
+.tabs-title > a:hover {
+  color: white; }
+
+.underline {
+  text-decoration: underline; }
+
+.tabs-panel {
+  margin: 10px; }
+
+main {
+  background: -webkit-gradient(linear, left top, left bottom, from(#0787ce), to(rgba(0, 0, 255, 0)));
+  background: linear-gradient(to bottom, #0787ce, rgba(0, 0, 255, 0));
+  font-color: #827F7E; }

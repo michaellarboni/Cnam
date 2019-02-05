@@ -4,6 +4,9 @@
 @import 'foundation';
 @import 'motion-ui';
 
+@import '../css/contact.css';
+@import '../css/header.css';
+
 // Global styles
 @include foundation-global-styles;
 //@include foundation-forms;
@@ -70,29 +73,29 @@ body{
   overflow-y: scroll;
   background-image: url("../img/fond.png");
 }
-.menu li{
+
+.menu li {
   font-family: Comfortaa, Arial, sans-serif;
   text-transform: lowercase;
-  color:white;
   font-size: 18px;
-  letter-spacing: 0.9px;
-
-  transition-duration:0.6s;
+  letter-spacing: 1px;
+  transition-duration:0s;
     &:hover{
-      transition-duration:0.8s;
-      background:whitesmoke;
-      color: $catColor;
+      transition-duration:0s;
+      font-weight:bold ;
+      letter-spacing: 1.5px;
     }
     &:first-child{
       border: none;}
 }
 
 #logo img{
-  height:180px;}
+  height:80px;}
 #logoAccueil img,#logoContact img {
   display: none;}
 #active a{
-  text-decoration: underline;
+  font-weight:bold ;
+  letter-spacing: 1.5px;
 }
 .tabs-content{
   min-height: 80vh;
@@ -106,7 +109,7 @@ body{
   #logo img {
     display: none;}
   .menu .Contact {
-    visibility: hidden;
+    display: none;
   }
   #logoAccueil img,#logoContact img{
     display: block;
@@ -122,4 +125,19 @@ body{
   }
   .menu li {
     font-size: 14px; }
+}
+
+.tabs-title > a:hover {
+  color: white;
+}
+.underline{
+  text-decoration: underline;
+}
+.tabs-panel{
+  margin: 10px;
+}
+
+main {
+  background: linear-gradient(to bottom, $catColor, rgba(0,0,255,0));
+  font-color: #827F7E;
 }

@@ -4,7 +4,7 @@
   background: #FFF;
   padding: 0 20px 25px;
   text-align: center;
-  #color: #B6B6B6;
+  color: #827F7E;
   #box-sizing: border-box; }
 
 .contactChamp label {
@@ -13,7 +13,7 @@
   top: -50px;
   width: auto;
   height: 100%;
-  background-color: #8CAFB6;
+  background-color: #0787ce;
   color: #062122;
   line-height: 50px;
   font-size: 14px;
@@ -44,7 +44,7 @@
   transition: all 0.5s; }
 
 #formContact button {
-  background-color: #8CAFB6;
+  background-color: #0787ce;
   color: #fff7fa;
   text-transform: uppercase;
   border: 0;
@@ -59,10 +59,15 @@
   transition: all 0.5s; }
 
 .contactChamp label.erreurLab {
-  background-color: #902f09;
   color: white; }
 
 .contactChamp input.erreurLab, #msg.erreurLab {
-  border: solid 1px #c7403f; }
+  }
 
-/*# sourceMappingURL=contact.css.map */
+input:invalid {
+  box-shadow: 0 0 5px 1px red;}
+
+input:valid{
+  box-shadow: 0 0 5px 1px #0787ce;
+}
+
