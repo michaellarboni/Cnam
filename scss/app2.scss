@@ -1,0 +1,71 @@
+body{
+  overflow-y: scroll;
+  background-image: url("../img/fond.png");
+}
+
+.menu li {
+  font-family: Comfortaa, Arial, sans-serif;
+  text-transform: lowercase;
+  font-size: 18px;
+  letter-spacing: 1px;
+  transition-duration:0s;
+  &:hover{
+    transition-duration:0s;
+    font-weight:bold ;
+    letter-spacing: 1.5px;
+  }
+  &:first-child{
+    border: none;}
+}
+
+#logo img{
+  height:80px;}
+#logoAccueil img,#logoContact img {
+  display: none;}
+#active a{
+  font-weight:bold ;
+  letter-spacing: 1.5px;
+}
+.tabs-content{
+  min-height: 80vh;
+}
+@media only screen and (max-width: 400px) {
+  .menu li {
+    font-size: 12px; }
+}
+
+@media only screen and (max-width: 540px) {
+  #logo img {
+    display: none;}
+  .menu .Contact {
+    display: none;
+  }
+  #logoAccueil img,#logoContact img{
+    display: block;
+    height: 20px;}
+}
+@media only screen and (min-width: 358px) {
+  .menu li{
+    border-left: 0.1px solid #c3c3c3;}
+}
+@media only screen and (max-width: 744px) {
+  #logo img{
+    height:100px;
+  }
+  .menu li {
+    font-size: 14px; }
+}
+
+.tabs-title > a:hover {
+  color: white;
+}
+.underline{
+  text-decoration: underline;
+}
+.tabs-panel{
+  margin: 10px;
+}
+main {
+  background: linear-gradient(to bottom, $catColor, rgba(0,0,255,0));
+  font-color: #827F7E;
+}
