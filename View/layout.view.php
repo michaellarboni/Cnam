@@ -19,7 +19,7 @@ $vcontent = new $content['class']();
 
         <title><?=$content['title'];?></title>
 
-        <link rel="stylesheet" href="../Foundation/css/app.css">
+        <link rel="stylesheet" href="../css/app.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comfortaa">
 
     </head>
@@ -32,10 +32,10 @@ $vcontent = new $content['class']();
             <?php $vcontent->{$content['method']}($content['arg']);?>
         </main>
 
-        <script src="../Foundation/node_modules/jquery/dist/jquery.js"></script>
+        <script src="../node_modules/jquery/dist/jquery.js"></script>
         <!--script src="../Foundation/node_modules/what-input/dist/what-input.js"></script-->
-        <script src="../Foundation/node_modules/foundation-sites/dist/js/foundation.js"></script>
-        <script src="../Foundation/js/app.js"></script>
+        <script src="../node_modules/foundation-sites/dist/js/foundation.js"></script>
+        <script src="../js/app.js"></script>
         <script src="../js/changeContent.js"></script>
         <!--script src="../js/foundation.core.js"></script-->
         <!--script src="../js/foundation.tabs.js"></script-->
