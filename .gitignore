@@ -6,6 +6,5 @@ dist
 *.swp
 .cache
 .idea
-Sql/
 .sass-cache/
 *.map
