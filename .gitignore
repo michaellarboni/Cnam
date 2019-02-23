@@ -8,3 +8,5 @@ dist
 .idea
 .sass-cache/
 *.map
+_backup
+Inc
