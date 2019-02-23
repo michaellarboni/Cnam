@@ -2,108 +2,109 @@
 
 class MItems
 {
-private $conn;
+    private $conn;
+    private $id_item;
+    private $value;
 
-private $id_item;
+    public function __construct($_id_item = null)
+    {
+        $this->conn = new PDO(DATABASE, LOGIN, PASSWORD);
 
-private $value;
+        $this->id_item = $_id_item;
 
-public function __construct($_id_item = null)
-{
-    $this->conn = new PDO(DATABASE, LOGIN, PASSWORD);
+        return;
 
-    $this->id_item = $_id_item;
+    } // __construct($_primary_key = null)
 
-} // __construct($_primary_key = null)
+    public function __destruct() {}
 
-public function __destruct() {}
+    public function SetValue($_value)
+    {
+        $this->value = $_value;
 
-public function SetValue($_value)
-{
-    $this->value = $_value;
+        return;
 
-} // SetValue($_value)
+    } // SetValue($_value)
 
-public function SelectAll()
-{
-    $query = 'select ID_ITEM, ITEM
-              from ITEMS
-   		      order by ID_ITEM';
+    public function SelectAll()
+    {
+        $query = 'select ID_ITEM, ITEM
+                  from ITEMS
+                  order by ID_ITEM';
 
-    $result = $this->conn->prepare($query);
+        $result = $this->conn->prepare($query);
 
-    $result->execute() or die ($this->ErrorSQL($result));
+        $result->execute() or die ($this->ErrorSQL($result));
 
-    return $result->fetchAll();
+        return $result->fetchAll();
 
-} // SelectAll()
+    } // SelectAll()
 
-public function Select()
-{
-    $query = "select ID_ITEM, ITEM
-              from ITEMS
-              where ID_ITEM = $this->id_item";
+    public function Select()
+    {
+        $query = "select ID_ITEM, ITEM
+                  from ITEMS
+                  where ID_ITEM = $this->id_item";
 
-    $result = $this->conn->prepare($query);
+        $result = $this->conn->prepare($query);
 
-    $result->execute() or die ($this->ErrorSQL($result));
+        $result->execute() or die ($this->ErrorSQL($result));
 
-    return $result->fetch();
+        return $result->fetch();
 
-} // Select()
-
+    } // Select()
 
     public function Insert()
-{
-    $query = 'insert into ITEMS (ITEM)
-              values (:ITEM)';
+    {
+          $query = 'insert into ITEMS (ITEM)
+                  values (:ITEM)';
 
-    $result = $this->conn->prepare($query);
+        $result = $this->conn->prepare($query);
 
-    $result->bindValue(':ITEM', $this->value['ITEM'], PDO::PARAM_STR);
+        $result->bindValue(':ITEM', $this->value['ITEM'], PDO::PARAM_STR);
 
-    $result->execute() or die ($this->ErrorSQL($result));
+        $result->execute() or die ($this->ErrorSQL($result));
 
-    $this->primary_key = $this->conn->lastInsertId();
+        $this->primary_key = $this->conn->lastInsertId();
 
-    $this->value['ID_ITEM'] = $this->id_item;
+        $this->value['ID_ITEM'] = $this->id_item;
 
-    return $this->value;
+        return $this->value;
 
-} // Insert()
+    } // Insert()
 
-public function Update()
-{
-    $ITEM = $this->value['ITEM'];
+    public function Update()
+    {
+        $ITEM = $this->value['ITEM'];
 
-    $query = "update ITEMS
-              set ITEM = '$ITEM'
-              where ID_ITEM = $this->id_item";
+        $query = "update ITEMS
+                  set ITEM = '$ITEM'
+                  where ID_ITEM = $this->id_item";
 
-    $result = $this->conn->prepare($query);
+        $result = $this->conn->prepare($query);
 
-    $result->execute() or die ($this->ErrorSQL($result));
+        $result->execute() or die ($this->ErrorSQL($result));
 
-    $this->value['ID_ITEM'] = $this->id_item;
+        $this->value['ID_ITEM'] = $this->id_item;
 
-    return $this->value;
+        return $this->value;
 
-} // Update()
+    } // Update()
 
-public function Delete()
-{
-    $query = "delete from ITEMS
-              where ID_ITEM = $this->id_item";
+    public function Delete()
+    {
+        $query = "delete from ITEMS
+                  where ID_ITEM = $this->id_item";
 
-    $result = $this->conn->prepare($query);
+        $result = $this->conn->prepare($query);
 
-    $result->execute() or die ($this->ErrorSQL($result));
+        $result->execute() or die ($this->ErrorSQL($result));
 
-return;
+    return;
 
-} // Delete()
+    } // Delete()
 
-private function ErrorSQL($result)
+    private function ErrorSQL($result)
 {
     if (!DEBUG) return;
 
