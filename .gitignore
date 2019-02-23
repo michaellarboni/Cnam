@@ -9,4 +9,4 @@ dist
 .sass-cache/
 *.map
 _backup
-require.inc.php
+/Inc
