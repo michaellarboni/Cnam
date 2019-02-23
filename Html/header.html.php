@@ -4,6 +4,8 @@ global $li;
 global $nouveau;
 global $deconnexion;
 global $admin;
+global $admin_fiche;
+global $contact;
 
 echo<<<NOW
 
@@ -20,7 +22,7 @@ echo<<<NOW
             </div>
          <div class="title-bar">
             <div id="logoContact">
-                <a href="../Php/index.php?EX=page&ITEM=contact"><img src="../Img/logo-contact.png" alt="logoContact"></a>
+                <a href="../Php/index.php?EX=contact"><img src="../Img/logo-contact.png" alt="logoContact"></a>
             </div>
          </div>
         </div>
@@ -28,11 +30,15 @@ echo<<<NOW
         <div class="title-bar-right">
             <ul class="menu align-center">
                 $li
+                $contact
                 $nouveau
                 $deconnexion
-                $admin
             </ul>
         </div>
+            <ul>
+                $admin
+                $admin_fiche
+            </ul>
      </div>
 </div>   
 NOW;
