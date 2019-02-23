@@ -7,7 +7,7 @@
  */
 
 global $content;
-$vheader  = new VHeader();
+$vitems   = new VItems();
 $vcontent = new $content['class']();
 ?>
 <!DOCTYPE HTML>
@@ -24,21 +24,21 @@ $vcontent = new $content['class']();
 
     </head>
     <body>
-        <header>
-            <?=$vheader->showHeader()?>
-        </header>
-
-        <main>
-            <?php $vcontent->{$content['method']}($content['arg']);?>
-        </main>
+    <header>
+        <?=$vitems->showItems()?>
+    </header>
+    <main>
+        <?php $vcontent->{$content['method']}($content['arg']);?>
+    </main>
 
         <script src="../node_modules/jquery/dist/jquery.js"></script>
-        <!--script src="../Foundation/node_modules/what-input/dist/what-input.js"></script-->
+        <script src="../node_modules/what-input/dist/what-input.js"></script>
         <script src="../node_modules/foundation-sites/dist/js/foundation.js"></script>
         <script src="../js/app.js"></script>
-        <script src="../js/changeContent.js"></script>
+        <script src="../js/foundation.tabs.js"></script>
+        <!--script-- src="../js/changeDisplay.js"></script-->
+        <!--script src="../js/changeContent.js"></script-->
         <!--script src="../js/foundation.core.js"></script-->
-        <!--script src="../js/foundation.tabs.js"></script-->
         <!--script src="../js/foundation.util.imageLoader.js"></script-->
         <!--script src="../js/foundation.util.keyboard.js"></script-->
         <noscript>Votre navigateur n'accepte pas Javascript. Pour une expérience optimale, il est fortement conseillé d'activer cette option.</noscript>
