@@ -2821,7 +2821,7 @@ table.hover:not(.unstriped) tr:nth-of-type(even):hover {
             flex-direction: column-reverse; } }
 
 #formContact {
-  width: 1050px;
+  width: 80%;
   margin: 0 auto;
   background: #FFF;
   padding: 0 20px 25px;
@@ -2890,10 +2890,16 @@ input:valid {
 #admin a {
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   display: block;
   width: 10px;
   height: 10px; }
+
+.admin {
+  color: orange; }
+
+.adminContenu {
+  color: orange; }
 
 body {
   overflow-y: scroll;
