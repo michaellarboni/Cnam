@@ -64,9 +64,9 @@ class MPages
               and IC.ID_ITEM = :ID_ITEM
               order by C.ID_CONTENU';
         */
-        $query = 'select C.ID_CONTENU, 
+        $query = 'select C.ID_CONTENU,
                          C.ID_ITEM,
-                         C.TITRE,
+                         C.TITRE, C.PARAGRAPHE,
                          C.TEXTE,
                          C.FICHIER,
                          I.ID_ITEM,
@@ -94,7 +94,7 @@ class MPages
     */
     public function Select()
     {
-    $query = 'select ID_ITEM, ID_CONTENU, TITRE, TEXTE
+    $query = 'select ID_ITEM, ID_CONTENU, TITRE, TEXTE, PARAGRAPHE
               from CONTENUS
               where ID_CONTENU = :ID_CONTENU';
 
@@ -185,14 +185,15 @@ class MPages
     */
     public function Insert()
     {
-      $query = 'insert into CONTENUS (ID_ITEM, TITRE, TEXTE)
-                values(:ID_ITEM, :TITRE, :TEXTE)';
+      $query = 'insert into CONTENUS (ID_ITEM, TITRE, TEXTE, PARAGRAPHE)
+                values(:ID_ITEM, :TITRE, :TEXTE, :PARAGRAPHE)';
 
       $result = $this->conn->prepare($query);
 
       $result->bindValue(':ID_ITEM', $this->value['ID_ITEM'], PDO::PARAM_INT);
       $result->bindValue(':TITRE', $this->value['TITRE'], PDO::PARAM_STR);
       $result->bindValue(':TEXTE', $this->value['TEXTE'], PDO::PARAM_STR);
+      $result->bindValue(':PARAGRAPHE', $this->value['PARAGRAPHE'], PDO::PARAM_STR);
 
       $result->execute() or die ($this->ErrorSQL($result));
 
@@ -213,6 +214,7 @@ class MPages
       $query = 'update CONTENUS
                 set TITRE = :TITRE,
                     TEXTE = :TEXTE,
+	 	    PARAGRAPHE = :PARAGRAPHE,
                     ID_CONTENU = :ID_CONTENU 
                 where ID_ITEM = :ID_ITEM
                 and   ID_CONTENU = :ID_CONTENU';
@@ -223,6 +225,7 @@ class MPages
       $result->bindValue(':ID_CONTENU', $this->value['ID_CONTENU'], PDO::PARAM_INT);
       $result->bindValue(':TITRE', $this->value['TITRE'], PDO::PARAM_STR);
       $result->bindValue(':TEXTE', $this->value['TEXTE'], PDO::PARAM_STR);
+      $result->bindValue(':PARAGRAPHE',$this->value['PARAGRAPHE'], PDO::PARAM_STR);
 
       $result->execute() or die ($this->ErrorSQL($result));
 
