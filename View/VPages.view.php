@@ -25,11 +25,11 @@ class VPages
             $id_item    =  $val['ID_ITEM'];
             $item       =  $val['ITEM'];
             $id_contenu = $val['ID_CONTENU'];
-            $titre      =  '<h2>'.$val['TITRE'].'</h2>';
-            $texte      =  $val['TEXTE'];
-            $p          = '<p>'.$texte.'</p>';
-            $div       .= '<div class="tabs-panel is-active" id="panel'.$id_contenu.'">
-                            '.$titre.$p.'
+            $titre      = '<h2>'.$val['TITRE'].'</h2>';
+            $texte      = '<p>'.$val['TEXTE'].'</p>';
+            $paragraphe = '<p>'.$val['PARAGRAPHE'].'</p>';
+	    $div       .= '<div class="tabs-panel is-active" id="panel'.$id_contenu.'">
+                            '.$titre.$texte.$paragraphe.'
                            </div>';
 
             if (isset($_SESSION['ADMIN_CONTENU']))
@@ -40,7 +40,6 @@ class VPages
             else {$li .= '<li class="tabs-title"><a href="../Php/index.php?EX=page&amp;ID_CONTENU='.$id_contenu.'&amp;ID_ITEM='.$id_item.'">'.$val['TITRE'].'</a></li>' ;}}
 
         echo<<<HERE
-        
 <div class="grid-container">
     <div class="grid-x grid-margin-x">
         <div class="cell medium-3">
@@ -74,6 +73,7 @@ HERE;
             $ex   	    = 'update_contenu&ID_CONTENU='.$_data['ID_CONTENU'];
             $titre 	    = $_data['TITRE'];
             $texte 	    = $_data['TEXTE'];
+	    $paragraphe     = $_data['PARAGRAPHE'];
             $id_contenu = $_data['ID_CONTENU'];
             $supprimer  = '<a href="../Php/index.php?EX=delete_contenu&amp;ID_CONTENU='.$_data['ID_CONTENU'].'"><button>Supprimer</button></a>';
         }
@@ -82,6 +82,7 @@ HERE;
             $ex   	    = 'insert_contenu' ;
             $titre 	    = '' ;
             $texte 	    = '' ;
+	    $paragraphe     = '' ;
             $id_contenu = '' ;
             $supprimer  = '' ;
         }
@@ -98,9 +99,14 @@ HERE;
         </div>
 
         <div class="contactChamp">
-            <textarea id="msg" name="TEXTE" placeholder="Tapez votre texte ici, pour ajouter un paragraphe entourez le avec des balises <p>Comme ceci </p>" class="erreurLab">$texte</textarea>
-            <label for="sujet" id="champTexte" style="width: 20%;"  class="erreurLab">Paragraphe</label>
+            <textarea id="texte" name="TEXTE" placeholder="Tapez votre texte ici, pour ajouter un paragraphe entourez le avec des balises <p>Comme ceci </p>" class="erreurLab">$texte</textarea>
+            <label for="texte" id="champTexte" style="width: 20%;"  class="erreurLab">Texte</label>
         </div>
+
+	<div class="contactChamp">
+	     <textarea id="paragraphe" name="PARAGRAPHE" placeholder="Ecrivez du texte" class="erreurLab">$paragraphe</textarea>
+	     <label id="champParagraphe" style="width: 20%;" class="erreurLab">Paragraphe</label>
+	</div>
          
          <input id="id_item" name="ID_ITEM" value="$id_item" size="25" maxlength="100" type="hidden"/>       
          <input id="id_contenu" name="ID_CONTENU" value="$id_contenu" size="25" maxlength="50" type="hidden"/>
