@@ -1,0 +1,22 @@
+Options +FollowSymlinks
+RewriteEngine On
+
+# remplace index.php par home
+RewriteRule ^home$ index.php
+
+## remplace "index.php?EX=form_item" par " form_item"
+RewriteRule ^(\w+)$ index.php?EX=$1
+#
+## remplace "index.php?EX=page&ID_ITEM=1" par "page-1"
+#RewriteRule ^(\w+)-(\d+)$ index.php?EX=$1&ID_ITEM=$2 [L]
+#
+## Interdire l'accès à des répertoires
+RewriteRule ^Css/$ - [F]
+#RewriteRule ^Html/$ - [F]
+#RewriteRule ^Img/$ - [F]
+##RewriteRule ^Inc/$ - [F]
+#RewriteRule ^Inc$ index.php [L]
+#RewriteRule ^Mod/$ - [F]
+#RewriteRule ^Php/$ - [F]
+#RewriteRule ^View/$ - [F]
+#
