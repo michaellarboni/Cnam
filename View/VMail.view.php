@@ -64,8 +64,7 @@ class VMail
                 // Récupération des variables et sécurisation des données
                 $nom     = htmlentities($_POST['nom']); // htmlentities() convertit des caractères "spéciaux" en équivalent HTML
                 $email   = htmlentities($_POST['email']);
-                $tel     = isset($_POST['tel']) ? htmlentities($_POST['tel']) : '';
-                $sujet   = htmlentities($_POST['sujet']);
+                //$tel     = isset($_POST['tel']) ? htmlentities($_POST['tel']) : '';
                 $message = htmlentities($_POST['message']);
 
 
@@ -84,8 +83,6 @@ class VMail
        <div>
             <p><strong>Nom</strong>: '.$nom.'</p>
             <p><strong>Email</strong>: '.$email.'</p>
-            <p><strong>Tel</strong>: '.$tel.'</p>
-            <p><strong>Sujet</strong>: '.$sujet.'</p>
             <p><strong>Message</strong>: '.$message.'</p>
        </div>
       </body>
@@ -101,7 +98,6 @@ class VMail
       <body>
        <h3>Bonjour, vous avez envoyez un mail à Cat Clinic</h3>
        <div>
-            <p><strong>Sujet</strong>: '.$sujet.'</p>
             <p><strong>Message</strong>: '.$message.'</p>
        </div>
       </body>
@@ -116,13 +112,13 @@ class VMail
                 $this->confirmMail();
 
                 // Envoyer l'email
-                mail($webmaster, $sujet, $contenu, $headers); // Fonction principale qui envoi l'email
+                mail($webmaster, $contenu, $headers); // Fonction principale qui envoi l'email
 
 
                 if (isset($_POST['copyMail']))
                 {
                     // Envoie une copie de l'email
-                    mail($email, $sujet, $contenu2, $headers); // Fonction secondaire qui envoi une copie de l'email
+                    mail($email, $contenu2, $headers); // Fonction secondaire qui envoi une copie de l'email
                 }
 
 
