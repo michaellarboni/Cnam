@@ -65,7 +65,7 @@ HERE;
         </div>
         <div class="row">
             <label>Message *
-                <textarea id="msg" name="message" placeholder="Entrez votre message ici" required="required" class="erreurLab" rows="3" "></textarea>
+                <textarea id="msg" name="message" placeholder="Entrez votre message ici" required="required" class="erreurLab" rows="3"></textarea>
             </label>
         </div>
         <div class="contact-panel-actions">

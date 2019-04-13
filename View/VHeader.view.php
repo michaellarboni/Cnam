@@ -31,7 +31,6 @@ class VHeader
         $li          = '' ;
         $nouveau     = '' ;
         $deconnexion = '' ;
-        $active      = '' ;
         $id          = '' ;
 
         // Boucle sur les tuples de la table ITEMS
@@ -80,7 +79,7 @@ class VHeader
             {
                 // Affichage des éléments <li> du Header en consultation
 
-                $li .= '<li><button id="'.$active.'" onclick="changeContent(\'content\', \'../Php/index.php\', \'EX=page&ID_ITEM='.$id_item.'\')">'.$item.'</button></li>';
+                $li .= '<li><button onclick="changeContent(\'content\', \'../Php/index.php\', \'EX=page&ID_ITEM='.$id_item.'\')">'.$item.'</button></li>';
                 $contact = '<li><a data-toggle="contact-panel">Contact</a></li>';
                 $nouveau .= '';
                 $deconnexion .= '';
