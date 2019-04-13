@@ -11,8 +11,12 @@
 require('../Inc/require.inc.php');
 
 // Crée une session nommée
-session_name('cat_clinic');
+//session_name('cat_clinic');
+session_name('AUTORISATION');
 session_start();
+
+// Récupération de l'identifiant de l'utilisateur
+$ID_USER = isset($_REQUEST['ID_USER']) ?  $_REQUEST['ID_USER'] : '';
 
 // variable de contrôle
 $EX = isset ($_REQUEST['EX']) ? $_REQUEST['EX'] : 'home';
@@ -21,24 +25,26 @@ $EX = isset ($_REQUEST['EX']) ? $_REQUEST['EX'] : 'home';
 switch($EX)
 {
     case 'home'            : home();            break;
-    case 'page'            : page();            break;
-    case 'contact'         : contact();         break;
+    case 'forbidden'       : forbidden();       break;
+    case 'interdit'        : interdit();        exit;
+    case 'page'            : page();            exit;
+
+    case 'connect'         : connect();         break;
     case 'admin'           : admin();           break;
-    case 'adminForm'       : adminForm();       break;
-    case 'adminContenu'    : adminContenu();    break;
-    case 'adminFormContenu': adminFormContenu();break;      // non utilisé
-    case 'verifAdmin'      : verifAdmin();      break;
     case 'deconnect'       : deconnect();       break;
-    case 'form_item'       : form_item();       break;
+
+    case 'form_item'       : form_item();       exit;
     case 'insert_item'     : insert_item();     break;
     case 'update_item'     : update_item();     break;
     case 'delete_item'     : delete_item();     break;
-    case 'formContenu'     : formContenu();     break;
+
+    case 'form_contenu'    : form_contenu();    break;
     case 'insert_contenu'  : insert_contenu();  break;
     case 'update_contenu'  : update_contenu();  break;
     case 'delete_contenu'  : delete_contenu();  break;
-    case 'read'            : read();            break;
+
     case 'sendMail'        : sendMail();        break;
+
     default                : home();
 }
 
@@ -52,21 +58,19 @@ require ('../View/layout.view.php');
  */
 function home()
 {
-    //$arg = isset($_SESSION['ADMIN']) ? $_SESSION['ADMIN'] : 'home' ;
+    $arg = 'home';
 
-    if (isset($_SESSION['ADMIN']))
-    {$arg = 'admin';}
-    elseif (isset($_SESSION['ADMIN_CONTENU']))
-    {$arg = 'admin_contenu';}
-    else {$arg = 'home';}
+    if (isset($_SESSION['AUTORISATION']))
+        {
+            $_SESSION['ADMIN'] = true ;
+            $arg = 'admin';
+        }
 
-    /*switch ($arg)
-    {
-        case 'home'           : 'home';          break;
-        case 'ADMIN'          : 'admin';         break;
-        case 'ADMIN_CONTENU'  : 'admin_contenu'; break;
-    }
-    */
+    else
+        {
+            $arg = 'home';
+        }
+
     global $content;
 
     $content['title']  = 'Cat Clinic';
@@ -78,114 +82,85 @@ function home()
 
 } // home()
 
-/**
- * Affichage de la page d'accueil
- *
- * @return
+/*
+ * page saffichant lorsque les autorisations sont requises
  */
-function contact()
+function interdit()
+{
+    $vhtml = new VHtml();
+    $vhtml->showHtml('../Html/interdit.html.php');
+
+    return;
+} //interdit()
+
+
+function forbidden()
 {
     global $content;
 
     $content['title']  = 'Cat Clinic';
-    $content['class']  = 'VContact';
-    $content['method'] = 'showFormContact';
-    $content['arg']    = '';
+    $content['class']  = 'VHtml';
+    $content['method'] = 'showHtml';
+    $content['arg']    = '../Html/forbidden.html.php' ;
 
     return;
+} //forbidden()
 
-} // contact()
-
-/**
- * Affichage de la page d'accueil
- * en mode administration des items
- *
- * @return
- */
 function page($id_item = null)
 {
-        $_SESSION['ID_ITEM']    = isset($_GET['ID_ITEM'])    ? $_GET['ID_ITEM']    : $id_item ;
-        $_SESSION['ID_CONTENU'] = isset($_GET['ID_CONTENU']) ? $_GET['ID_CONTENU'] : $id_item ;
 
-        //$_SESSION['ITEM']       = isset($_GET['ITEM'])       ? $_GET['ITEM']       : $id_item ;
-        //$_SESSION['CONTENU']    = isset($_GET['CONTENU'])    ? $_GET['CONTENU']    : $id_item ;
+    $value ['ID_ITEM'] = isset($_REQUEST['ID_ITEM']) ? $_REQUEST['ID_ITEM'] : $id_item ;
+    $mpages = new MPages();
+    $mpages ->SetValue($value);
+    $data    = $mpages->SelectAll();
+//    array_walk($data, 'strip_xss');
 
-        $value ['ID_ITEM'] = $_SESSION['ID_ITEM'];
-        $mpages = new MPages();
-        $mpages ->SetValue($value);
-        $data['ITEM']    = $mpages->SelectAll();
-        //array_walk($data, 'strip_xss');
+    $vpages = new VPages();
+    $vpages->showPage($data);
 
-        global $content;
-
-        $content['title'] = 'Page Clinique';
-        $content['class'] = 'VPages';
-        $content['method'] = 'showPage';
-        $content['arg'] = $data;
-
-        return;
+    return;
 
 } //page
 
-function adminForm()
+function connect()
 {
     global $content;
-
-    $content['title']  = 'Cat Clinic';
-    $content['class']  = 'VAdmin';
-    $content['method'] = 'adminForm';
-    $content['arg']    = '';
-
-    return;
-
-} // adminForm()
-
-function adminFormContenu()
-{
-    global $content;
-
-    $content['title']  = 'Cat Clinic';
-    $content['class']  = 'VAdmin';
-    $content['method'] = 'adminForm';
-    $content['arg']    = '';
-
-    return;
-
-} // adminContenu
-
-function verifAdmin()
-{
-    global $content;
-
-    $content['title']  = 'Cat Clinic';
-    $content['class']  = 'VAdmin';
-    $content['method'] = 'verifAdmin';
-    $content['arg']    = '';
-
-    return;
-
-} // verifAdmin()
-
-function admin()
-{
-    $_SESSION['ADMIN'] = true;
-    home();
+    $content['title'] = 'Connexion';
+    $content['class'] = 'VForm';
+    $content['method'] = 'showFormConnect';
+    $content['arg'] = '';
 
     return;
 
 } // admin()
 
-function adminContenu()
+function admin()
 {
-    unset($_SESSION['ADMIN']);
+    if (isset($_POST['LOGIN']) & isset($_POST['PASSWORD']))
+    {
+        $musers = new MUsers();
+        $value = $musers->VerifUser($_POST);
 
-    $_SESSION['ADMIN_CONTENU'] = true;
+        global $ID_USER;
+        $ID_USER = $value['ID_USER'];
 
-    home();
+        global $_SESSION;
+
+        $_SESSION['ID_USER'] = $value['ID_USER'];
+        $_SESSION['NOM'] = $value['NOM'];
+        $_SESSION['PRENOM'] = $value['PRENOM'];
+        $_SESSION['AUTORISATION'] = $value['AUTORISATION'];
+
+        home();
+    }
+    else
+        {
+            forbidden();
+        }
 
     return;
 
-} // adminContenu()
+} // admin()
 
 /**
  * Déconnexion
@@ -194,10 +169,12 @@ function adminContenu()
  */
 function deconnect()
 {
-    // Suppression des ssessions
-    session_unset();
+//    // Vide le tableau des sessions
+//    session_unset();
 
-    // Réinitialisation de la variable $_SESSION
+    // Détruit la session
+    session_destroy();
+    // Détruit les variables de session
     $_SESSION = array();
 
     home();
@@ -213,25 +190,24 @@ function deconnect()
  */
 function form_item()
 {
-    // Test si le parametre ID_ITEM existe
-    if (isset($_GET['ID_ITEM']))
+    if (isset($_SESSION['ADMIN']))
     {
-        $mitems = new MItems($_GET['ID_ITEM']);
-        $data = $mitems->Select();
-        array_walk($data, 'strip_xss');
+        // Test si le parametre ID_ITEM existe
+        if (isset($_REQUEST['ID_ITEM'])) {
+            $mitems = new MItems($_REQUEST['ID_ITEM']);
+            $data = $mitems->Select();
+            array_walk($data, 'strip_xss');
+        } else {
+            $data = '';
+        }
+
+        $vform = new VForm();
+        $vform->showFormItem($data);
     }
     else
-    {
-        $data = '';
-    }
-
-    global $content;
-
-    $content['title']  = 'Formulaire';
-    $content['class']  = 'VItems';
-    $content['method'] = 'showForm';
-    $content['arg']    = $data;
-
+        {
+            forbidden();
+        }
     return;
 
 } // form_item()
@@ -243,12 +219,19 @@ function form_item()
  */
 function insert_item()
 {
+    if (isset($_SESSION['ADMIN']))
+    {
+        $mitems = new MItems();
+        $mitems->SetValue($_POST);
+        $mitems->Insert();
 
-    $mitems = new MItems();
-    $mitems->SetValue($_POST);
-    $mitems->Insert();
+        home();
+    }
 
-    home();
+    else
+    {
+        forbidden();
+    }
 
     return;
 
@@ -261,11 +244,30 @@ function insert_item()
  */
 function update_item()
 {
-    $mitems = new MItems($_GET['ID_ITEM']);
-    $mitems->SetValue($_POST);
-    $mitems->Update();
+    if (isset($_SESSION['ADMIN']))
+    {
+        $mitems = new MItems($_GET['ID_ITEM']);
+        $mitems->SetValue($_POST);
+        $mitems->Update();
 
-    home();
+
+    $value ['ID_ITEM'] = isset($_REQUEST['ID_ITEM']) ? $_REQUEST['ID_ITEM'] : $id_item ;
+    $mpages = new MPages();
+    $mpages ->SetValue($value);
+    $data    = $mpages->SelectAll();
+
+    global $content;
+
+    $content['title']  = 'Page Clinique';
+    $content['class']  = 'VPages';
+    $content['method'] = 'showPage';
+    $content['arg']    = $data;
+    }
+
+    else
+        {
+            forbidden();
+        }
 
     return;
 
@@ -278,12 +280,22 @@ function update_item()
  */
 function delete_item()
 {
-    $mitems = new MItems($_GET['ID_ITEM']);
-    $mitems->SetValue($_POST);
-    $mitems->Delete();
+    if (isset($_SESSION['ADMIN']))
 
-    home();
+    {
+        $data = $_REQUEST['ID_ITEM'];
 
+        $mitems = new MItems($data);
+        $mitems->SetValue($_POST);
+        $mitems->Delete();
+
+        home();
+    }
+
+    else
+        {
+            forbidden();
+        }
     return;
 
 } // delete_item()
@@ -292,28 +304,37 @@ function delete_item()
 /* Formulaire de Contenu
  *
  * */
-function formContenu()
+function form_contenu()
 {
-    // Test si le parametre ID_CONTENU existe
-    if (isset($_GET['ID_CONTENU']))
+    if (isset($_SESSION['ADMIN']))
     {
-        $mpages = new MPages($_GET['ID_CONTENU']);
-        $data = $mpages->Select();
-        $data['ITEM'] = $_GET['ITEM'];
-    }
 
+        // Test si le parametre ID_CONTENU existe
+        if (isset($_GET['ID_CONTENU']))
+        {
+            $mpages = new MPages($_GET['ID_CONTENU']);
+            $data = $mpages->Select();
+            $data['ITEM'] = $_GET['ITEM'];
+        }
+
+        else
+        {
+            $data['ID_ITEM'] = $_GET['ID_ITEM'];
+            $data['ITEM'] = $_GET['ITEM'];
+        }
+
+        global $content;
+
+        $content['title']  = 'Formulaire';
+        $content['class']  = 'VForm';
+        $content['method'] = 'showFormContenu';
+        $content['arg']    = $data;
+
+    }
     else
-    {
-        $data['ID_ITEM'] = $_GET['ID_ITEM'];
-        $data['ITEM'] = $_GET['ITEM'];
-    }
-
-    global $content;
-
-    $content['title']  = 'Formulaire';
-    $content['class']  = 'VPages';                  // pourquoi VPages != Vpages erreur sur raspbian class sensible a la casse
-    $content['method'] = 'showForm';
-    $content['arg']    = $data;
+        {
+            forbidden();
+        }
 
     return;
 
@@ -321,11 +342,28 @@ function formContenu()
 
 function insert_contenu()
 {
-    $mpages = new MPages();
-    $mpages->SetValue($_POST);
-    $mpages->Insert();
+    if (isset($_SESSION['ADMIN']))
+    {
+        $mpages = new MPages();
+        $mpages->SetValue($_POST);
+        $mpages->Insert();
 
-    home();
+        $value ['ID_ITEM'] = isset($_REQUEST['ID_ITEM']) ? $_REQUEST['ID_ITEM'] : $id_item ;
+        $mpages = new MPages();
+        $mpages ->SetValue($value);
+        $data    = $mpages->SelectAll();
+
+        global $content;
+
+        $content['title']  = 'Page Clinique';
+        $content['class']  = 'VPages';
+        $content['method'] = 'showPage';
+        $content['arg']    = $data;
+    }
+    else
+        {
+            forbidden();
+        }
 
     return;
 
@@ -338,28 +376,62 @@ function insert_contenu()
  */
 function update_contenu()
 {
-    $mpages = new MPages($_GET['ID_CONTENU']);
-    $mpages->SetValue($_POST);
-    $mpages->Update();
+    if (isset($_SESSION['ADMIN']))
+    {
+        $mpages = new MPages($_GET['ID_CONTENU']);
+        $mpages->SetValue($_POST);
+        $mpages->Update();
 
-    home();
+        $value ['ID_ITEM'] = isset($_REQUEST['ID_ITEM']) ? $_REQUEST['ID_ITEM'] : $id_item ;
+        $mpages = new MPages();
+        $mpages ->SetValue($value);
+        $data    = $mpages->SelectAll();
+
+        global $content;
+
+        $content['title']  = 'Page Clinique';
+        $content['class']  = 'VPages';
+        $content['method'] = 'showPage';
+        $content['arg']    = $data;
+    }
+    else
+        {
+            forbidden();
+        }
 
     return;
 
 } // update_contenu()
 
 /**
- * Suppression d'un item
+ * Suppression d'un contenu
  *
  * @return
  */
 function delete_contenu()
 {
-    $mpages = new MPages($_GET['ID_CONTENU']);
-    $mpages->SetValue($_POST);
-    $mpages->Delete();
+    if (isset($_SESSION['ADMIN']))
+    {
+        $mpages = new MPages($_GET['ID_CONTENU']);
+        $mpages->SetValue($_POST);
+        $mpages->Delete();
 
-    home();
+        $value ['ID_ITEM'] = isset($_REQUEST['ID_ITEM']) ? $_REQUEST['ID_ITEM'] : $id_item ;
+        $mpages = new MPages();
+        $mpages ->SetValue($value);
+        $data    = $mpages->SelectAll();
+
+        global $content;
+
+        $content['title']  = 'Page Clinique';
+        $content['class']  = 'VPages';
+        $content['method'] = 'showPage';
+        $content['arg']    = $data;
+    }
+    else
+    {
+        forbidden();
+    }
 
     return;
 
