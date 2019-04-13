@@ -7,6 +7,13 @@ define('LOGIN', 'root');
 define('PASSWORD', 'MLarboni');
 define('CHARSET', 'utf8');
 
+// Constantes d'autorisations
+define('CONSULTATION', 0);
+define('INSERTION', 1);
+define('MODIFICATION', 2);
+define('SUPPRESSION', 4);
+define('ADMIN', 7);
+
 spl_autoload_register('my_autoload');
 
 function my_autoload($class)
