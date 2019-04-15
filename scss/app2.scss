@@ -1,8 +1,11 @@
 body{
   overflow-y: scroll;
-  background-image: url("../img/fond.png");
 }
+$logo-width : 150px;
 
+.menu {
+  margin-right: $logo-width;
+}
 .menu li {
   font-family: Comfortaa, Arial, sans-serif;
   text-transform: lowercase;
@@ -12,17 +15,27 @@ body{
   &:hover{
     transition-duration:0s;
     font-weight:bold ;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
   }
   &:first-child{
     border: none;}
+
+  button{
+    padding: 5px;
+    color: #ebeff3;
+    &:hover{
+      transition-duration:0s;
+      font-weight:bold ;
+      letter-spacing: 1px;
+    }
+  }
 }
 
 #logo img{
-  height:80px;}
-#logoAccueil img,#logoContact img {
+  width : $logo-width;}
+#logoAccueil img {
   display: none;}
-#active a{
+#active {
   font-weight:bold ;
   letter-spacing: 1.5px;
 }
@@ -40,9 +53,13 @@ body{
   .menu .Contact {
     display: none;
   }
-  #logoAccueil img,#logoContact img{
+
+  #logoAccueil img {
     display: block;
     height: 20px;}
+  .menu{
+    margin-right: 0;
+  }
 }
 @media only screen and (min-width: 358px) {
   .menu li{
@@ -62,10 +79,24 @@ body{
 .underline{
   text-decoration: underline;
 }
-.tabs-panel{
-  margin: 10px;
-}
+
 main {
   background: linear-gradient(to bottom, $catColor, rgba(0,0,255,0));
   font-color: #827F7E;
+}
+
+.supprimer a{
+  color: orangered;
+  &:hover{
+    letter-spacing: 1px;
+    font-weight: bold;
+  }
+}
+
+footer{
+  height: 20px;
+}
+
+button{
+  cursor: pointer;
 }
