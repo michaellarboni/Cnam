@@ -4,7 +4,7 @@
 define('DEBUG', true);
 define('DATABASE', 'mysql:host=localhost;dbname=cat_clinic;charset=utf8');
 define('LOGIN', 'root');
-define('PASSWORD', 'MLarboni');
+define('PASSWORD', 'mot_de_passe');
 define('CHARSET', 'utf8');
 
 // Constantes d'autorisations
